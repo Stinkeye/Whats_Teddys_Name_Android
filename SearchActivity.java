@@ -61,7 +61,7 @@ public class SearchActivity extends AppCompatActivity {
 
 
         socDb = new DatabaseHelper(this); //will call constructor of Helper class and create new db
-        inputStream = getResources().openRawResource(R.raw.data); //open file from raw folder
+        inputStream = getResources().openRawResource(R.raw.cecs); //open file from raw folder
 
         /*Cast buttons and fields*/
         btnViewAll = (Button) findViewById(R.id.button_viewSOC);
@@ -102,15 +102,15 @@ public class SearchActivity extends AppCompatActivity {
 
                 switch (position){
                     case 0:
-                        Toast.makeText(getBaseContext(),"1 is selected", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getBaseContext(),"CECS is selected", Toast.LENGTH_LONG).show();
                         field1 = "CECS";
                         break;
                     case 1:
-                        Toast.makeText(getBaseContext(),"2 is selected", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getBaseContext(),"MATH is selected", Toast.LENGTH_LONG).show();
                         field1 = "MATH";
                         break;
                     case 2:
-                        Toast.makeText(getBaseContext(),"3 is selected", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getBaseContext(),"ECE is selected", Toast.LENGTH_LONG).show();
                         field1 = "ECE";
                         break;
                 }
@@ -132,16 +132,16 @@ public class SearchActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 switch (position){
                     case 0:
-                        Toast.makeText(getBaseContext()," equal to selected", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getBaseContext(),"class is equal to selected", Toast.LENGTH_LONG).show();
                         Log.d("EQUAL 2", "msg 2");
                         condition = "equalTo";
                         break;
                     case 1:
-                        Toast.makeText(getBaseContext()," greater than selected", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getBaseContext(),"class greater than selected", Toast.LENGTH_LONG).show();
                         condition = "greaterThan";
                         break;
                     case 2:
-                        Toast.makeText(getBaseContext(),"less than selected", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getBaseContext(),"class less than selected", Toast.LENGTH_LONG).show();
                         condition = "lessThan";
                         break;
                 }
@@ -213,17 +213,17 @@ public class SearchActivity extends AppCompatActivity {
 
             switch (condition){
                 case "lessThan":
-                    if(subject.contains(field1) && (num < field2num) ){
+                    if(subject.contains(field1) && (clasnum < field2num) ){
                         newList.add(getInfo);
                     }
                     break;
                 case "greaterThan":
-                    if(subject.contains(field1) && (num > field2num) ){
+                    if(subject.contains(field1) && (clasnum > field2num) ){
                         newList.add(getInfo);
                     }
                     break;
                 case "equalTo":
-                    if(subject.contains(field1) && (num == field2num) ){
+                    if(subject.contains(field1) && (clasnum == field2num) ){
                         newList.add(getInfo);
                     }
                     break;
@@ -287,10 +287,10 @@ public class SearchActivity extends AppCompatActivity {
                         /* ..not sure.  Some sort of buffer that reads in database rows */
                         StringBuffer buffer = new StringBuffer();                 //declare a buffer
                         while (res.moveToNext()) {                                //move Cursor object 'res' to the next row
-                            buffer.append("Name :"+ res.getString(0)+"\n");         //index 0 is first db column
-                            buffer.append("Description :"+ res.getString(1)+"\n");       //index 1 is second db column
-                            buffer.append("tag1 :"+ res.getString(2)+"\n");//index 2 is third db column
-                            buffer.append("tag2 :"+ res.getString(3)+"\n\n");      //index 3 is fourth db column
+                            buffer.append("ID :"+ res.getString(0)+"\n");         //index 0 is first db column
+                            buffer.append("SUBJECT :"+ res.getString(1)+"\n");       //index 1 is second db column
+                            buffer.append("CLASS :"+ res.getString(2)+"\n");//index 2 is third db column
+                            buffer.append("SECTION :"+ res.getString(3)+"\n\n");      //index 3 is fourth db column
                         }
 
                         // call method to show all db data in a message box

@@ -46,10 +46,10 @@ public class ScheduleActivity extends AppCompatActivity {
                         /* ..not sure.  Some sort of buffer that reads in database rows */
                         StringBuffer buffer = new StringBuffer();                 //declare a buffer
                         while (res.moveToNext()) {                                //move Cursor object 'res' to the next row
-                            buffer.append("Name :"+ res.getString(0)+"\n");         //index 0 is first db column
-                            buffer.append("Description :"+ res.getString(1)+"\n");       //index 1 is second db column
-                            buffer.append("tag1 :"+ res.getString(2)+"\n");//index 2 is third db column
-                            buffer.append("tag2 :"+ res.getString(3)+"\n\n");      //index 3 is fourth db column
+                            buffer.append("DEPT :"+ res.getString(0)+"\n");         //index 0 is first db column
+                            buffer.append("CLASS :"+ res.getString(1)+"\n");       //index 1 is second db column
+                            buffer.append("SECTION :"+ res.getString(2)+"\n");//index 2 is third db column
+                            buffer.append("TIME :"+ res.getString(3)+"\n\n");      //index 3 is fourth db column
                         }
 
                         // call method to show all db data in a message box
