@@ -6,6 +6,11 @@ package com.soc.matthewhaynes.sqliteapp;
 
 public class GetInfo {
 
+    private String Name;
+    private String Description;
+    private String tag1; 
+    private String tag2; 
+    
     private String id;
     private String subject;
     private String clas;
