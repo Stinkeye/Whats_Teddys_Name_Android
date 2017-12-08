@@ -47,13 +47,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     /* Insert data into the DB */
-    public boolean insertData(String dept, String classs, String section, String time) {
+    public boolean insertData(String name, String descr, String tag1, String tag2) {
         SQLiteDatabase db = this.getWritableDatabase();    //declare db we want to alter
         ContentValues contentValues = new ContentValues(); //ContentValues creates and EMPTY SET of values ..below fills empty set
-        contentValues.put(COL_1,dept);           //insert data into db column 1
-        contentValues.put(COL_2,classs);         //insert data into db column 2
-        contentValues.put(COL_3,section);        //insert data into db column 3
-        contentValues.put(COL_4,time);           //insert data into db column 4
+        contentValues.put(COL_1,name);           //insert data into db column 1
+        contentValues.put(COL_2,descr);         //insert data into db column 2
+        contentValues.put(COL_3,tag1);        //insert data into db column 3
+        contentValues.put(COL_4,tag2);           //insert data into db column 4
         long result = db.insert(TABLE_NAME,null ,contentValues);
         if(result == -1)
             return false;
